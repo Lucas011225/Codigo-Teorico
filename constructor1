@@ -6,8 +6,6 @@ class punto{//si no se aclara va a ser privado por defecto
 	
 public:
 	punto(){//constructos
-		x=0;y=0;
-	}
 	~punto();//destructor
 	void cambiar(int a, int b);
 	int print_x();
