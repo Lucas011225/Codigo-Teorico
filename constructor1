@@ -1,0 +1,57 @@
+using namespace std;
+#include <iostream>
+
+class punto{//si no se aclara va a ser privado por defecto
+	int x,y;//atributos
+	
+public:
+	punto(){//constructos
+		x=0;y=0;
+	}
+	~punto();//destructor
+	void cambiar(int a, int b);
+	int print_x();
+	int print_y();
+};
+//lo de arriba fue la definicion de los metodos
+
+punto::punto(){//constructor
+	x=0;
+	y=0;
+} 
+
+punto::~punto(){//destructor
+	cout<<"el objeto se destruye";//equivalente a printf
+}
+	
+void punto::cambiar(int a, int b){//funcion cambiar
+		x=a;
+		y=b;
+	}
+	
+int punto::print_x(){//muestra x
+		return x;
+	}
+	
+int punto::print_y(){//muestra y
+		return y;
+	}
+	
+
+int main(int argc, char *argv[]) {
+		int a,b;
+		class punto p;
+		
+		cout<<"la coordenada x es: "<<p.print_x();
+		cout<<"la coordenada y es: "<<p.print_y();
+		
+		cout<<"se cambia el estado del punto ,ingresar coordenada en x e y";
+		cin>>a;
+		cin>>b;
+		p.cambiar(a,b);
+		
+		cout<<"la nueva coordenada x es: "<<p.print_x();
+		cout<<"la nueva coordenada y es: "<<p.print_y();
+	return 0;
+}
+
