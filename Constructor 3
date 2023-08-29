@@ -1,0 +1,78 @@
+using namespace std;
+#include <iostream>
+
+class punto{//si no se aclara va a ser privado por defecto
+	int x,y;//atributos
+	
+public:
+	punto();//constructos
+	punto(int a, int b);//constructor con atributos
+	punto(punto &p);//contructor de copia
+	~punto();//destructor
+	void cambiar(int a, int b);
+	int print_x();
+	int print_y();
+	int t;
+};
+//lo de arriba fue la definicion de los metodos
+
+punto::punto(punto &p){//constructor de copia
+	x=p.x;
+	y=p.y;
+}
+
+punto::punto(){//constructor
+	x=0;
+	y=0;
+} 
+
+punto::~punto(){//destructor
+	cout<<"el objeto se destruye";//equivalente a printf
+}
+	
+	void punto::cambiar(int a, int b){//funcion cambiar
+		x=a;
+		y=b;
+	}
+	
+	int punto::print_x(){//muestra x
+		return x;
+	}
+	
+	int punto::print_y(){//muestra y
+		return y;
+	}
+	
+	
+	int main(int argc, char *argv[]) {
+		int a,b;
+		class punto p,p1(10,20);
+		
+		cout<<"objeto p";
+		cout<<"la coordenada x es: "<<p.print_x();
+		cout<<"la coordenada y es: "<<p.print_y();
+		
+		cout<<"objeto p1";
+		cout<<"la coordenada x es: "<<p1.print_x();
+		cout<<"la coordenada y es: "<<p1.print_y();
+		
+		cout<<"se cambia el estado del punto ,ingresar coordenada en x e y";
+		cin>>a;
+		cin>>b;
+		
+		p.cambiar(a,b);
+		cout<<"la nueva coordenada x es: "<<p.print_x();
+		cout<<"la nueva coordenada y es: "<<p.print_y();
+		
+		p1.cambiar(a,b);
+		cout<<"la nueva coordenada x es: "<<p1.print_x();
+		cout<<"la nueva coordenada y es: "<<p1.print_y();
+		
+		
+		punto p2(p1);//se crea un 3 obj de tipo punto
+		cout<<"la nueva coordenada x es: "<<p2.print_x();
+		cout<<"la nueva coordenada y es: "<<p2.print_y();
+		
+		
+		return 0;
+	}
