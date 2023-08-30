@@ -1,0 +1,85 @@
+using namespace std;
+#include <iostream>
+
+class punto{//si no se aclara va a ser privado por defecto
+	int x,y;//atributos
+	
+	public:
+		punto(int , int );//constructor con atributos
+		punto(punto &p);//contructor de copia
+	
+		~punto();//destructor
+	
+		void cambiar(int a, int b);
+	
+		int print_x();
+		int print_y();
+};
+//lo de arriba fue la definicion de los metodos
+
+
+
+
+punto::punto(punto &p){//constructor de copia
+	x=p.x;
+	y=p.y;
+}
+
+punto::punto(int a, int b){//constructor
+	x=a;
+	y=b;
+} 
+
+punto::~punto(){//destructor
+	cout<<"\nel objeto se destruye";//equivalente a printf
+}
+	
+	void punto::cambiar(int a, int b){//funcion cambiar
+		x=a;
+		y=b;
+	}
+	
+	int punto::print_x(){//muestra x
+		return x;
+	}
+	
+	int punto::print_y(){//muestra y
+		return y;
+	}
+	
+	
+	int main(int argc, char *argv[]) {
+		int a,b;
+		class punto p(10,20),p1(p);
+		
+		cout<<"\nConstructor atributo\n";
+		cout<<"\nla coordenada x es:"<<p.print_x();
+		cout<<"\nla coordenada y es:"<<p.print_y();
+		
+		cout<<"\nConstructor Copia\n";
+		cout<<"\nla coordenada x es:"<<p1.print_x();
+		cout<<"\nla coordenada y es:"<<p1.print_y();
+		
+		cout<<"\nse cambia el estado del punto ,ingresar coordenada en x e y\n";
+		cout<<"ingresa x:";
+		cin>>a;
+		cout<<"ingresa y:";
+		cin>>b;
+		
+		p.cambiar(a,b);
+		cout<<"\nla nueva coordenada x de A es:"<<p.print_x();
+		cout<<"\nla nueva coordenada y de A es:\n"<<p.print_y();
+		
+		p1.cambiar(a,b);
+		cout<<"\nla nueva coordenada x de C es:"<<p1.print_x();
+		cout<<"\nla nueva coordenada y de C es:\n"<<p1.print_y();
+		
+		
+		punto p2(p1);//se crea un 3 obj de tipo punto
+		cout<<"\nCREAMOS UNA TERCER VARIABLE CON ATRIBUTO A P1\n";
+		cout<<"\nla nueva coordenada x es:"<<p2.print_x();
+		cout<<"\nla nueva coordenada y es:\n"<<p2.print_y();
+		
+		
+		return 0;
+	}
