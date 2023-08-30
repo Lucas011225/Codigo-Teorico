@@ -1,11 +1,12 @@
+u#include <iostream>
 using namespace std;
-#include <iostream>
+
 
 class punto{//si no se aclara va a ser privado por defecto
 	int x,y;//atributos
 	
 public:
-	punto(){//constructos
+	punto();//constructos
 	~punto();//destructor
 	void cambiar(int a, int b);
 	int print_x();
@@ -19,7 +20,7 @@ punto::punto(){//constructor
 } 
 
 punto::~punto(){//destructor
-	cout<<"el objeto se destruye";//equivalente a printf
+	cout<<"\nel objeto se destruye\n";//equivalente a printf
 }
 	
 void punto::cambiar(int a, int b){//funcion cambiar
@@ -40,16 +41,21 @@ int main(int argc, char *argv[]) {
 		int a,b;
 		class punto p;
 		
-		cout<<"la coordenada x es: "<<p.print_x();
-		cout<<"la coordenada y es: "<<p.print_y();
+		cout<<"\nla coordenada x es: "<<p.print_x();
+		cout<<"\nla coordenada y es: "<<p.print_y();
 		
-		cout<<"se cambia el estado del punto ,ingresar coordenada en x e y";
+		cout<<"\nse cambia el estado del punto ,ingresar coordenada en x e y\n";
+		
+		cout<<"ingresa x:";
 		cin>>a;
+		cout<<"ingresa y:";
 		cin>>b;
-		p.cambiar(a,b);
 		
-		cout<<"la nueva coordenada x es: "<<p.print_x();
-		cout<<"la nueva coordenada y es: "<<p.print_y();
+		p.cambiar(a,b);//funcion para cambiar las variables
+		
+		cout<<"\nla nueva coordenada x es: "<<p.print_x();
+		cout<<"\nla nueva coordenada y es: "<<p.print_y();
 	return 0;
 }
+
 
