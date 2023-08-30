@@ -1,5 +1,6 @@
-u#include <iostream>
+#include <iostream>
 using namespace std;
+
 
 
 class punto{//si no se aclara va a ser privado por defecto
@@ -8,11 +9,16 @@ class punto{//si no se aclara va a ser privado por defecto
 public:
 	punto();//constructos
 	~punto();//destructor
+	
 	void cambiar(int a, int b);
+	
 	int print_x();
 	int print_y();
 };
 //lo de arriba fue la definicion de los metodos
+
+
+
 
 punto::punto(){//constructor
 	x=0;
@@ -57,5 +63,8 @@ int main(int argc, char *argv[]) {
 		cout<<"\nla nueva coordenada y es: "<<p.print_y();
 	return 0;
 }
+
+
+
 
 
